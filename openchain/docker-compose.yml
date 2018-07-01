@@ -1,0 +1,20 @@
+version: '3'
+services:
+  wallet:
+    image: nginx
+    container_name: wallet_web
+    ports:
+      - "80:80"
+    volumes:
+      - ./wallet:/usr/share/nginx/html
+    restart: always
+
+  openchain:
+    build: server/.
+    container_name: openchain_server
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/openchain/data
+    restart: always
+
