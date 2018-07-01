@@ -1,0 +1,59 @@
+version: "3"
+services:
+
+  ontology-peer1:
+    image: jxzsxsp/ontology:1.0.0
+    container_name: ontology-peer1
+    ports:
+      - "20333-20339:20333-20339"
+      - "20000:20000"
+    networks:
+      - ontology-network
+    volumes:
+      - ontology-data-peer1:/data/ontology
+    restart: always
+
+  ontology-peer2:
+    image: jxzsxsp/ontology:1.0.0
+    container_name: ontology-peer2
+    ports:
+      - "21333-21339:20333-20339"
+      - "21000:20000"
+    networks:
+      - ontology-network
+    volumes:
+      - ontology-data-peer2:/data/ontology
+    restart: always
+
+  ontology-peer3:
+    image: jxzsxsp/ontology:1.0.0
+    container_name: ontology-peer3
+    ports:
+      - "22333-22339:20333-20339"
+      - "22000:20000"
+    networks:
+      - ontology-network
+    volumes:
+      - ontology-data-peer3:/data/ontology
+    restart: always
+
+  ontology-peer4:
+    image: jxzsxsp/ontology:1.0.0
+    container_name: ontology-peer4
+    ports:
+      - "23333-23339:20333-20339"
+      - "23000:20000"
+    networks:
+      - ontology-network
+    volumes:
+      - ontology-data-peer4:/data/ontology
+    restart: always
+
+networks:
+  ontology-network:
+
+volumes:
+  ontology-data-peer1:
+  ontology-data-peer2:
+  ontology-data-peer3:
+  ontology-data-peer4:
